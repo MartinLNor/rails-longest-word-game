@@ -19,7 +19,7 @@ class GamesController < ApplicationController
     @test = wording['found']
     if @test
       @word.split().each do |letter|
-        if @array.count(letter) == @word.count(letter)
+        if @array.count(letter) >= @word.count(letter)
           @message = "You win with a #{@word.length} word size ! Good job !"
           @image = "winner.png"
         else
