@@ -1,0 +1,32 @@
+<div class="wrapper">
+  <div class="container ctn">
+    <h1>Numbers & Letters <br>(in fact just letters)</h1>
+    <ul class="list-inline ">
+    <% @letter.each do |letter| %>
+    <li class="list-inline-item item"><span><%= letter %></span></li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+<div class="wrapper white">
+  <div class="container">
+    <form action='/score' method='post'>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :array_token, @letter %>
+      <h6>What is the longest word you can find ?</h6>
+      <div class="col-auto">
+        <label class="sr-only" for="inlineFormInputGroup">What is the longest word you can find ?</label>
+        <div class="input-group mb-2 rounded">
+
+          <input type="text" name="word" class="form-control inp" id="inlineFormInputGroup" placeholder="here your word">
+          <div class="input-group-text sub">
+            <input type="submit" class="subm"></input>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div>
+      <%= link_to 'Shuffle', new_path, class:'btn btn-primary btn-lg' %>
+    </div>
+  </div>
+</div>
